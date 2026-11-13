@@ -1,411 +1,335 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Warm December ♡</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Warm December ♡</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap" rel="stylesheet">
 
-<style>
-:root {
-  --green: #35483a;
-  --dark-green: #26372c;
-  --burgundy: #813e48;
-  --cream: #f7f0e5;
-  --gold: #c9aa79;
-  --brown: #604d40;
-}
+  <style>
+    :root {
+      --green: #263d32;
+      --dark-green: #1c3027;
+      --burgundy: #743b45;
+      --cream: #f8f1e6;
+      --gold: #d4b98e;
+      --text: #f8f1e6;
+    }
 
-* {
-  box-sizing: border-box;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-body {
-  margin: 0;
-  background: var(--cream);
-  color: var(--brown);
-  font-family: Georgia, serif;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: var(--dark-green);
+      color: var(--text);
+      font-family: Georgia, serif;
+      text-align: center;
+    }
 
-.hero {
-  min-height: 100vh;
-  padding: 65px 22px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background:
-    radial-gradient(ellipse at top, #536c56, transparent 65%),
-    linear-gradient(145deg, var(--green), var(--dark-green));
-  color: var(--cream);
-  position: relative;
-}
+    .page {
+      min-height: 100vh;
+      padding: 55px 20px;
+      background: linear-gradient(160deg, #304b3d, #1c3027);
+    }
 
-.hero-content {
-  max-width: 620px;
-  width: 100%;
-}
+    .container {
+      max-width: 700px;
+      margin: 0 auto;
+    }
 
-.snowflake {
-  color: #e5d8bd;
-  font-size: 25px;
-  letter-spacing: 12px;
-}
+    .eyebrow {
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      margin-bottom: 15px;
+    }
 
-.eyebrow {
-  color: #e2c99f;
-  text-transform: uppercase;
-  letter-spacing: 4px;
-  font-size: 11px;
-  margin-top: 30px;
-}
+    h1 {
+      font-size: clamp(42px, 9vw, 68px);
+      font-weight: normal;
+      margin: 0;
+      color: var(--cream);
+    }
 
-h1 {
-  font-size: clamp(44px, 9vw, 76px);
-  font-weight: normal;
-  margin: 22px 0 10px;
-  color: #fff5e8;
-}
+    .subtitle {
+      color: #dfcbb0;
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-top: 15px;
+    }
 
-.subtitle {
-  font-style: italic;
-  color: #e2c99f;
-  font-size: 17px;
-}
+    .santa-cat {
+      display: block;
+      width: 125px;
+      max-width: 35%;
+      height: auto;
+      margin: 25px auto 5px;
+    }
 
-/* Santa cat decoration */
-.santa-cat {
-  display: block;
-  width: 125px;
-  max-width: 35%;
-  height: auto;
-  margin: 25px auto 5px;
-}
+    .letter {
+      max-width: 570px;
+      margin: 35px auto 0;
+      padding: 30px 28px;
+      background: rgba(248, 241, 230, 0.07);
+      border: 1px solid rgba(212, 185, 142, 0.3);
+      border-radius: 5px;
+      text-align: left;
+      line-height: 1.9;
+      font-size: 15px;
+    }
 
-/* Personal letter */
-.letter {
-  margin: 35px auto 25px;
-  text-align: left;
-  line-height: 1.9;
-  font-size: 16px;
-  color: #f3eadc;
-}
+    .letter p:not(.greeting) {
+      font-family: 'Lora', serif;
+      font-size: 14px;
+      line-height: 2;
+    }
 
-.letter p {
-  margin-bottom: 20px;
-}
+    .greeting {
+      font-size: 17px;
+      color: var(--gold);
+      margin-top: 0;
+    }
 
-.letter p:not(:first-child) {
-  font-family: 'Lora', serif;
-}
+    .signature {
+      text-align: right;
+      color: var(--gold);
+      font-family: Georgia, serif;
+      font-style: italic;
+      margin-bottom: 0;
+    }
 
-.signature {
-  text-align: right;
-  color: #e2c99f;
-  font-style: italic;
-  font-size: 23px;
-  margin-top: 30px;
-}
+    .letter-divider {
+      text-align: center;
+      color: var(--gold);
+      letter-spacing: 9px;
+      font-size: 17px;
+      margin: 25px 0;
+    }
 
-/* Little decorative divider */
-.letter-divider {
-  text-align: center;
-  color: #d4b98e;
-  letter-spacing: 9px;
-  font-size: 17px;
-  margin: 25px 0;
-}
+    .cat-decorations {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+      margin: 25px auto 10px;
+    }
 
-/* Your original cat expressions */
-.cat-decorations {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 18px;
-  margin: 25px auto 10px;
-}
+    .cat-decorations img {
+      width: 66px;
+      height: 66px;
+      object-fit: contain;
+    }
 
-.cat-decorations img {
-  width: 66px;
-  height: 66px;
-  object-fit: contain;
-}
+    .calendar-title {
+      margin-top: 65px;
+      font-size: 27px;
+      font-weight: normal;
+      color: var(--cream);
+    }
 
-.button {
-  display: inline-block;
-  margin-top: 25px;
-  padding: 15px 28px;
-  background: var(--burgundy);
-  color: white;
-  border: 1px solid #bd8587;
-  border-radius: 30px;
-  font-family: Georgia, serif;
-  font-size: 15px;
-  cursor: pointer;
-  transition: .25s;
-}
+    .calendar-subtitle {
+      color: #dfcbb0;
+      font-size: 13px;
+      margin: 12px 0 25px;
+    }
 
-.button:hover {
-  background: #9a5059;
-  transform: translateY(-2px);
-}
+    .calendar-decoration {
+      color: var(--gold);
+      font-size: 17px;
+      letter-spacing: 10px;
+      margin: 18px 0;
+    }
 
-/* Calendar */
-.calendar {
-  padding: 75px 20px;
-  text-align: center;
-  background: var(--cream);
-}
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 13px;
+      max-width: 530px;
+      margin: 0 auto;
+    }
 
-.calendar h2 {
-  color: var(--green);
-  font-weight: normal;
-  font-size: 36px;
-}
+    .door {
+      aspect-ratio: 1;
+      border: 1px solid var(--gold);
+      border-radius: 5px;
+      background: var(--burgundy);
+      color: var(--cream);
+      font-family: Georgia, serif;
+      font-size: 22px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
-.calendar-intro {
-  font-style: italic;
-  line-height: 1.7;
-  margin-bottom: 35px;
-}
+    .door:hover:not(:disabled) {
+      transform: translateY(-4px);
+      background: #8a4b55;
+    }
 
-.calendar-decoration {
-  color: var(--burgundy);
-  font-size: 17px;
-  letter-spacing: 10px;
-  margin: 18px 0;
-}
+    .door:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      background: #35483d;
+      border-color: #8c998d;
+    }
 
-.doors {
-  max-width: 680px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 13px;
-}
+    .message {
+      max-width: 500px;
+      margin: 25px auto;
+      min-height: 45px;
+      color: var(--gold);
+      line-height: 1.7;
+      font-size: 14px;
+    }
 
-.door {
-  min-height: 100px;
-  border: 1px solid var(--gold);
-  border-radius: 12px;
-  background: #fffaf1;
-  color: var(--burgundy);
-  font-family: Georgia, serif;
-  font-size: 28px;
-  cursor: pointer;
-  transition: .2s;
-}
+    footer {
+      margin-top: 65px;
+      color: #c6bba9;
+      font-size: 12px;
+      letter-spacing: 2px;
+    }
 
-.door:not(:disabled):hover {
-  transform: translateY(-4px);
-  background: #f0e2d1;
-}
+    .footer-decoration {
+      display: block;
+      margin-bottom: 12px;
+      letter-spacing: 8px;
+      font-size: 17px;
+      color: var(--gold);
+    }
 
-.door:disabled {
-  cursor: not-allowed;
-  opacity: .55;
-  background: #e9e0d4;
-}
+    @media (max-width: 480px) {
+      .page {
+        padding: 40px 16px;
+      }
 
-.surprise {
-  max-width: 500px;
-  margin: 30px auto 0;
-  padding: 22px;
-  background: white;
-  border: 1px solid var(--gold);
-  border-radius: 12px;
-  line-height: 1.7;
-  display: none;
-}
+      .letter {
+        padding: 24px 20px;
+      }
 
-footer {
-  padding: 30px;
-  text-align: center;
-  background: var(--green);
-  color: #e2c99f;
-  font-style: italic;
-}
+      .calendar {
+        gap: 9px;
+      }
 
-.footer-decoration {
-  display: block;
-  margin-bottom: 12px;
-  letter-spacing: 8px;
-  font-size: 17px;
-}
-
-@media (max-width: 450px) {
-  .doors {
-    gap: 8px;
-  }
-
-  .door {
-    min-height: 75px;
-    font-size: 23px;
-  }
-
-  .letter {
-    font-size: 15px;
-  }
-
-  .cat-decorations {
-    gap: 12px;
-  }
-
-  .cat-decorations img {
-    width: 55px;
-    height: 55px;
-  }
-
-  .calendar h2 {
-    font-size: 30px;
-  }
-}
-</style>
+      .door {
+        font-size: 19px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <main class="page">
+    <div class="container">
 
-<section class="hero">
-  <div class="hero-content">
+      <p class="eyebrow">A little something for you</p>
 
-    <div class="snowflake">✧ ❄ ✧</div>
+      <h1>Warm December</h1>
 
-    <div class="eyebrow">A little something for you</div>
+      <p class="subtitle">December 1st — 24th ♡</p>
 
-    <h1>Warm December</h1>
+      <img
+        src="images/santa-cat.png"
+        alt="A little Christmas cat"
+        class="santa-cat"
+      >
 
-    <div class="subtitle">December 1st — 24th ♡</div>
+      <section class="letter">
+        <p class="greeting">Hey you,</p>
 
-    <img
-      src="images/santa-cat.png"
-      alt="Black cat wearing a Santa hat"
-      class="santa-cat"
-    >
+        <p>
+          I don't really know how to start this, but I guess that's okay.
+          I made this little place because I wanted to give you something
+          that wasn't just another gift, something you could come back to
+          every day and find a little piece of me in.
+        </p>
 
-    <div class="letter">
+        <p>
+          There are probably things I don't say enough, little thoughts
+          I keep to myself, memories I replay in my head and silly things
+          that remind me of you. So I thought I'd put some of them here.
+        </p>
 
-      <p>Hey you,</p>
+        <p>
+          It's nothing extraordinary, just 24 little surprises made with
+          you in mind. I hope some make you laugh, some make you smile,
+          and maybe some remind you how much you mean to me.
+        </p>
 
-      <p>
-        I don't really know how to start this, but I guess
-        that's okay. I made this little place because I
-        wanted to give you something that wasn't just
-        another gift, something you could come back to
-        every day and find a little piece of me in.
+        <p>
+          Take your time with them. There's no need to rush. I just wanted
+          to make your December a little warmer, even if I'm not right
+          there beside you.
+        </p>
+
+        <p class="signature">Yours, ♡</p>
+      </section>
+
+      <div class="letter-divider">✦ ✧ ✦</div>
+
+      <div class="cat-decorations">
+        <img src="images/cat-01.png" alt="A cute cat">
+        <img src="images/cat-02.png" alt="Another cute cat">
+      </div>
+
+      <div class="calendar-decoration">♡ ✦ ♡</div>
+
+      <h2 class="calendar-title">Your little December</h2>
+
+      <p class="calendar-subtitle">
+        One little surprise, every day. Take your time ♡
       </p>
 
-      <p>
-        There are probably things I don't say enough,
-        little thoughts I keep to myself, memories I replay
-        in my head and silly things that remind me of you.
-        So I thought I'd put some of them here.
+      <div class="calendar-decoration">✧ ❄ ✧</div>
+
+      <div class="calendar" id="calendar"></div>
+
+      <p class="message" id="message">
+        A little surprise is waiting behind each door. ♡
       </p>
 
-      <p>
-        It's nothing extraordinary, just 24 little surprises
-        made with you in mind. I hope some make you laugh,
-        some make you smile, and maybe some remind you
-        how much you mean to me.
-      </p>
-
-      <p>
-        Take your time with them. There's no need to rush.
-        I just wanted to make your December a little warmer,
-        even if I'm not right there beside you.
-      </p>
-
-      <div class="signature">Yours, ♡</div>
+      <footer>
+        <span class="footer-decoration">♡ ❄ ♡</span>
+        MADE WITH LOVE, JUST FOR YOU
+      </footer>
 
     </div>
+  </main>
 
-    <div class="letter-divider">✧ ♡ ✧</div>
+  <script>
+    const calendar = document.getElementById("calendar");
+    const message = document.getElementById("message");
 
-    <div class="cat-decorations">
-      <img src="images/cat-01.png" alt="Cute cat expression">
-      <img src="images/cat-06.png" alt="Cute cat expression">
-      <img src="images/cat-12.png" alt="Cute cat expression">
-    </div>
+    function isUnlocked(day) {
+      const today = new Date();
+      const year = today.getFullYear();
+      const month = today.getMonth() + 1;
+      const date = today.getDate();
 
-    <button class="button"
-      onclick="document.getElementById('calendar').scrollIntoView({behavior:'smooth'})">
-      Explore your calendar ↓
-    </button>
+      if (year > 2026) return true;
+      if (year < 2026) return false;
+      if (month > 12) return true;
+      if (month < 12) return false;
 
-  </div>
-</section>
-
-<section class="calendar" id="calendar">
-
-  <div class="snowflake">✧ ❄ ✧</div>
-
-  <div class="calendar-decoration">♡ ✦ ♡</div>
-
-  <h2>A little surprise, every day</h2>
-
-  <p class="calendar-intro">
-    24 little doors, just for you.<br>
-    One new surprise each day. ♡
-  </p>
-
-  <div class="doors" id="doors"></div>
-
-  <div class="surprise" id="surprise"></div>
-
-  <div class="calendar-decoration">✧ ❄ ✧</div>
-
-</section>
-
-<footer>
-  <span class="footer-decoration">♡ ✧ ♡</span>
-  Made with love, just for you ♡
-</footer>
-
-<script>
-const doors = document.getElementById("doors");
-const surprise = document.getElementById("surprise");
-
-const messages = Array.from({length: 24}, (_, i) =>
-  `Your little surprise for December ${i + 1} will be waiting here. ♡`
-);
-
-function isUnlocked(day) {
-  const now = new Date();
-
-  if (now.getFullYear() > 2026) return true;
-  if (now.getFullYear() < 2026) return false;
-  if (now.getMonth() < 11) return false;
-  if (now.getMonth() > 11) return true;
-
-  return now.getDate() >= day;
-}
-
-for (let day = 1; day <= 24; day++) {
-  const button = document.createElement("button");
-  button.className = "door";
-  button.textContent = day;
-  button.disabled = !isUnlocked(day);
-
-  button.addEventListener("click", () => {
-    surprise.style.display = "block";
-
-    if (isUnlocked(day)) {
-      surprise.textContent = messages[day - 1];
+      return date >= day;
     }
 
-    surprise.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
-  });
+    for (let day = 1; day <= 24; day++) {
+      const button = document.createElement("button");
+      button.className = "door";
+      button.textContent = day;
+      button.disabled = !isUnlocked(day);
 
-  if (!isUnlocked(day)) {
-    button.title = "This little door isn't ready yet ♡";
-  }
+      button.addEventListener("click", () => {
+        message.textContent =
+          `Your little surprise for December ${day} will be waiting here. ♡`;
+      });
 
-  doors.appendChild(button);
-}
-</script>
-
+      calendar.appendChild(button);
+    }
+  </script>
 </body>
 </html>
