@@ -1,93 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>December 2nd ♡</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Well Do You Know Me? ♡</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(160deg, #304b3d, #1c3027);
-      color: #f8f1e6;
-      font-family: Georgia, serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 25px;
-      box-sizing: border-box;
-    }
+<style>
+  * { box-sizing: border-box; }
 
-    .content {
-      max-width: 550px;
-      width: 100%;
-      padding: 40px 25px;
-      border: 1px solid rgba(212, 185, 142, 0.4);
-      background: rgba(248, 241, 230, 0.06);
-      border-radius: 6px;
-    }
+  body {
+    margin: 0;
+    padding: 35px 16px;
+    background: #26372c;
+    color: #f7f0e5;
+    font-family: 'Lora', serif;
+  }
 
-    .date {
-      color: #d4b98e;
-      letter-spacing: 4px;
-      font-size: 12px;
-      text-transform: uppercase;
-    }
+  .quiz {
+    max-width: 550px;
+    margin: 20px auto;
+    padding: 28px;
+    background: #35483a;
+    border: 1px solid #c9aa79;
+    border-radius: 18px;
+  }
 
-    h1 {
-      font-size: 42px;
-      font-weight: normal;
-      margin: 25px 0;
-    }
+  h1 {
+    color: #d8bd91;
+    text-align: center;
+  }
 
-    .message {
-      font-family: 'Lora', serif;
-      font-size: 15px;
-      line-height: 2;
-      color: #f1e7d7;
-    }
+  .intro {
+    text-align: center;
+    line-height: 1.7;
+  }
 
-    .decoration {
-      color: #d4b98e;
-      letter-spacing: 8px;
-      margin: 30px 0;
-    }
+  .question {
+    margin: 30px 0;
+  }
 
-    a {
-      color: #d4b98e;
-      text-decoration: none;
-      font-size: 13px;
-      letter-spacing: 1px;
-    }
+  .question p {
+    line-height: 1.6;
+  }
 
-    a:hover {
-      color: #fff;
-    }
-  </style>
+  label {
+    display: block;
+    margin: 10px 0;
+    padding: 13px;
+    background: #26372c;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  label:has(input:checked) {
+    outline: 1px solid #c9aa79;
+  }
+
+  input {
+    accent-color: #c9aa79;
+    margin-right: 8px;
+  }
+
+  button {
+    display: block;
+    margin: 25px auto 0;
+    padding: 13px 25px;
+    border: none;
+    border-radius: 25px;
+    background: #813e48;
+    color: #fff8ee;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  button:disabled {
+    opacity: 0.6;
+  }
+
+  #results {
+    display: none;
+    margin-top: 25px;
+  }
+
+  .score {
+    color: #d8bd91;
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .answer {
+    padding: 14px;
+    margin: 14px 0;
+    border-radius: 10px;
+    line-height: 1.7;
+  }
+
+  .correct {
+    background: #354f3c;
+    border: 1px solid #8eaf91;
+  }
+
+  .incorrect {
+    background: #59343a;
+    border: 1px solid #c98282;
+  }
+
+  .small {
+    text-align: center;
+    font-size: 13px;
+    opacity: 0.8;
+    line-height: 1.6;
+  }
+
+  a {
+    display: block;
+    margin-top: 25px;
+    color: #d8bd91;
+    text-align: center;
+  }
+</style>
 </head>
 
 <body>
-  <main class="content">
-    <p class="date">December 2nd</p>
 
-    <h1>A little beginning ♡</h1>
+<div class="quiz">
+  <h1>How well do you know me? ♡</h1>
 
-    <div class="decoration">✦ ✧ ✦</div>
+  <p class="intro">
+    A little test to see how much attention
+    you've been paying... Good luck!
+  </p>
 
-    <p class="message">
-      Your first little surprise goes here.
-      <br><br>
-      I'll put something special here for you soon ( •̯́ ₃ •̯̀).
+  <form id="quizForm">
+    <div id="questions"></div>
+
+    <p class="small">
+      Your answers will be saved as part of
+      this December project ♡
     </p>
 
-    <div class="decoration">♡ ❄ ♡</div>
+    <button type="submit">Submit my answers ♡</button>
+  </form>
 
-    <a href="../index.html">← Back to the calendar</a>
-  </main>
+  <div id="results">
+    <h2 style="text-align:center">Your results ♡</h2>
+    <div class="score" id="score"></div>
+    <p id="message" class="intro"></p>
+    <div id="answerReview"></div>
+    <p class="small">Thank you for playing! ♡</p>
+  </div>
+
+  <a href="../index.html">← Back to the calendar</a>
+</div>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzykwrITEQBNT6wQpZyve0rK2vxbCOZ9vgjMhkqK-9a-8Ik_ozmOzr37Jh60eiscek/exec";
+
+// Change the questions, options and correct answers here!
+const questions = [
+  {
+    question: "What's my favourite kind of day?",
+    options: [
+      "A slow, peaceful day",
+      "A busy day full of adventures",
+      "A day spent gaming"
+    ],
+    correct: "A slow, peaceful day"
+  },
+  {
+    question: "What would I choose for our perfect date?",
+    options: [
+      "A cosy movie night",
+      "A little walk together",
+      "A spontaneous adventure"
+    ],
+    correct: "A cosy movie night"
+  },
+  {
+    question: "Which kind of surprise would I enjoy most?",
+    options: [
+      "A handwritten letter",
+      "An expensive gift",
+      "A huge party"
+    ],
+    correct: "A handwritten letter"
+  }
+];
+
+const form = document.getElementById("quizForm");
+const questionsArea = document.getElementById("questions");
+
+// Display the questions
+questions.forEach((q, index) => {
+  const section = document.createElement("div");
+  section.className = "question";
+
+  let html = `<p><strong>${index + 1}. ${q.question}</strong></p>`;
+
+  q.options.forEach(option => {
+    html += `
+      <label>
+        <input
+          type="radio"
+          name="q${index}"
+          value="${option}"
+          required
+        >
+        ${option}
+      </label>
+    `;
+  });
+
+  section.innerHTML = html;
+  questionsArea.appendChild(section);
+});
+
+form.addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const button = form.querySelector("button");
+  button.disabled = true;
+  button.textContent = "Sending your answers...";
+
+  // Check his answers
+  const answers = questions.map((q, index) => {
+    const selected = form.elements["q" + index].value;
+
+    return {
+      question: q.question,
+      selected: selected,
+      correctAnswer: q.correct,
+      isCorrect: selected === q.correct
+    };
+  });
+
+  const score = answers.filter(a => a.isCorrect).length;
+
+  // Prepare the data for your Google Sheet
+  const data = {
+    quiz: "How well do you know me?",
+    score: score,
+    total: questions.length,
+    answers: answers
+  };
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(data)
+    });
+
+    // Show his score
+    document.getElementById("score").textContent =
+      score + " / " + questions.length;
+
+    let message;
+
+    if (score === questions.length) {
+      message = "PERFECT SCORE!! You know me so well. ♡";
+    } else if (score >= 2) {
+      message = "Not bad at all! You know me pretty well. ♡";
+    } else {
+      message = "Hmm, looks like you still have things to learn about me! ♡";
+    }
+
+    document.getElementById("message").textContent = message;
+
+    // Show correct and incorrect answers
+    const review = document.getElementById("answerReview");
+
+    answers.forEach((a, index) => {
+      const item = document.createElement("div");
+
+      item.className = "answer " +
+        (a.isCorrect ? "correct" : "incorrect");
+
+      const title = document.createElement("strong");
+      title.textContent = (a.isCorrect ? "✓ " : "✗ ") +
+        (index + 1) + ". " + a.question;
+
+      const selected = document.createElement("p");
+      selected.textContent = "Your answer: " + a.selected;
+
+      const correct = document.createElement("p");
+      correct.textContent = "Correct answer: " + a.correctAnswer;
+
+      item.append(title, selected, correct);
+      review.appendChild(item);
+    });
+
+    form.style.display = "none";
+    document.getElementById("results").style.display = "block";
+
+  } catch (error) {
+    button.disabled = false;
+    button.textContent = "Try again ♡";
+    document.getElementById("message").textContent =
+      "Something went wrong. Please try again.";
+  }
+});
+</script>
+
 </body>
 </html>
-
