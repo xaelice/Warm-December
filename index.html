@@ -72,13 +72,15 @@ h1 {
   color: #e2c99f;
   font-size: 17px;
 }
+
 .santa-cat {
-  margin: block;
+  display: block;
   width: 125px;
   max-width: 35%;
   height: auto;
   margin: 25px auto 5px;
 }
+
 .letter {
   margin: 55px auto 30px;
   text-align: left;
@@ -102,7 +104,6 @@ h1 {
   font-style: italic;
   font-size: 23px;
   margin-top: 30px;
-
 }
 
 .cat-deco {
@@ -111,14 +112,12 @@ h1 {
   align-items: center;
   gap: 18px;
   margin: 25px auto 10px;
-
 }
 
 .cat-deco img {
   width: 66px;
   height: 66px;
   object-fit: contain;
-
 }
 
 .button {
@@ -187,17 +186,6 @@ h1 {
   cursor: not-allowed;
   opacity: .55;
   background: #e9e0d4;
-}
-
-.surprise {
-  max-width: 500px;
-  margin: 30px auto 0;
-  padding: 22px;
-  background: white;
-  border: 1px solid var(--gold);
-  border-radius: 12px;
-  line-height: 1.7;
-  display: none;
 }
 
 footer {
@@ -282,15 +270,15 @@ footer {
 
 <section class="calendar" id="calendar">
   <div class="snowflake">✧ ❄ ✧</div>
+
   <h2>A little surprise, every day</h2>
+
   <p class="calendar-intro">
     24 little doors, just for you.<br>
     One new surprise each day. ♡
   </p>
 
   <div class="doors" id="doors"></div>
-
-  <div class="surprise" id="surprise"></div>
 </section>
 
 <footer>
@@ -299,11 +287,6 @@ footer {
 
 <script>
 const doors = document.getElementById("doors");
-const surprise = document.getElementById("surprise");
-
-const messages = Array.from({length: 24}, (_, i) =>
-  `Your little surprise for December ${i + 1} will be waiting here. ♡`
-);
 
 function isUnlocked(day) {
   const now = new Date();
@@ -318,21 +301,16 @@ function isUnlocked(day) {
 
 for (let day = 1; day <= 24; day++) {
   const button = document.createElement("button");
+
   button.className = "door";
   button.textContent = day;
   button.disabled = !isUnlocked(day);
 
   button.addEventListener("click", () => {
-    surprise.style.display = "block";
-
     if (isUnlocked(day)) {
-      surprise.textContent = messages[day - 1];
+      const pageNumber = String(day).padStart(2, "0");
+      window.location.href = `doors/door-${pageNumber}.html`;
     }
-
-    surprise.scrollIntoView({
-      behavior: "smooth",
-      block: "center"
-    });
   });
 
   if (!isUnlocked(day)) {
