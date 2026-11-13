@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Warm December ♡</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap" rel="stylesheet">
+
 <style>
 :root {
   --green: #35483a;
@@ -81,6 +83,11 @@ h1 {
 
 .letter p {
   margin-bottom: 20px;
+}
+
+/* Lora is applied only to the letter paragraphs, not the greeting */
+.letter p:not(:first-child) {
+  font-family: 'Lora', serif;
 }
 
 .signature {
@@ -239,12 +246,12 @@ footer {
         even if I'm not right there beside you.
       </p>
 
-      <div class="signature">Yours forever, ♡</div>
+      <div class="signature">Yours, ♡</div>
     </div>
 
     <button class="button"
       onclick="document.getElementById('calendar').scrollIntoView({behavior:'smooth'})">
-      Calendar here ദ്ദി ˉ͈̀꒳ˉ͈́ )✧ ↓
+      Explore your calendar ↓
     </button>
 
   </div>
