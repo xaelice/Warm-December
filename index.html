@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Warm December ♡</title>
+
+<style>
+:root {
+  --green: #35483a;
+  --dark-green: #26372c;
+  --burgundy: #813e48;
+  --cream: #f7f0e5;
+  --gold: #c9aa79;
+  --brown: #604d40;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--brown);
+  font-family: Georgia, serif;
+}
+
+.hero {
+  min-height: 100vh;
+  padding: 70px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background:
+    radial-gradient(ellipse at top, #536c56, transparent 65%),
+    linear-gradient(145deg, var(--green), var(--dark-green));
+  color: var(--cream);
+  position: relative;
+}
+
+.hero-content {
+  max-width: 620px;
+}
+
+.snowflake {
+  color: #e5d8bd;
+  font-size: 27px;
+  letter-spacing: 15px;
+}
+
+.eyebrow {
+  color: #e2c99f;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 11px;
+  margin-top: 35px;
+}
+
+h1 {
+  font-size: clamp(44px, 9vw, 76px);
+  font-weight: normal;
+  margin: 22px 0 10px;
+  color: #fff5e8;
+}
+
+.subtitle {
+  font-style: italic;
+  color: #e2c99f;
+  font-size: 17px;
+}
+
+.letter {
+  margin: 55px auto 30px;
+  text-align: left;
+  line-height: 1.9;
+  font-size: 16px;
+  color: #f3eadc;
+}
+
+.letter p {
+  margin-bottom: 20px;
+}
+
+.signature {
+  text-align: right;
+  color: #e2c99f;
+  font-style: italic;
+  font-size: 23px;
+  margin-top: 30px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 15px 28px;
+  background: var(--burgundy);
+  color: white;
+  border: 1px solid #bd8587;
+  border-radius: 30px;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  cursor: pointer;
+  transition: .25s;
+}
+
+.button:hover {
+  background: #9a5059;
+  transform: translateY(-2px);
+}
+
+.calendar {
+  padding: 75px 20px;
+  text-align: center;
+  background: var(--cream);
+}
+
+.calendar h2 {
+  color: var(--green);
+  font-weight: normal;
+  font-size: 36px;
+}
+
+.calendar-intro {
+  font-style: italic;
+  line-height: 1.7;
+  margin-bottom: 35px;
+}
+
+.doors {
+  max-width: 680px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 13px;
+}
+
+.door {
+  min-height: 100px;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  background: #fffaf1;
+  color: var(--burgundy);
+  font-family: Georgia, serif;
+  font-size: 28px;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.door:not(:disabled):hover {
+  transform: translateY(-4px);
+  background: #f0e2d1;
+}
+
+.door:disabled {
+  cursor: not-allowed;
+  opacity: .55;
+  background: #e9e0d4;
+}
+
+.surprise {
+  max-width: 500px;
+  margin: 30px auto 0;
+  padding: 22px;
+  background: white;
+  border: 1px solid var(--gold);
+  border-radius: 12px;
+  line-height: 1.7;
+  display: none;
+}
+
+footer {
+  padding: 30px;
+  text-align: center;
+  background: var(--green);
+  color: #e2c99f;
+  font-style: italic;
+}
+
+@media (max-width: 450px) {
+  .doors {
+    gap: 8px;
+  }
+
+  .door {
+    min-height: 75px;
+    font-size: 23px;
+  }
+
+  .letter {
+    font-size: 15px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+  <div class="hero-content">
+
+    <div class="snowflake">✧ ❄ ✧</div>
+
+    <div class="eyebrow">A little something for you</div>
+
+    <h1>Warm December</h1>
+
+    <div class="subtitle">December 1st — 24th ♡</div>
+
+    <div class="letter">
+      <p>Hey you,</p>
+
+      <p>
+        I don't really know how to start this, but I guess
+        that's okay. I made this little place because I
+        wanted to give you something that wasn't just
+        another gift, something you could come back to
+        every day and find a little piece of me in.
+      </p>
+
+      <p>
+        There are probably things I don't say enough,
+        little thoughts I keep to myself, memories I replay
+        in my head and silly things that remind me of you.
+        So I thought I'd put some of them here.
+      </p>
+
+      <p>
+        It's nothing extraordinary, just 24 little surprises
+        made with you in mind. I hope some make you laugh,
+        some make you smile, and maybe some remind you
+        how much you mean to me.
+      </p>
+
+      <p>
+        Take your time with them. There's no need to rush.
+        I just wanted to make your December a little warmer,
+        even if I'm not right there beside you.
+      </p>
+
+      <div class="signature">Yours, ♡</div>
+    </div>
+
+    <button class="button"
+      onclick="document.getElementById('calendar').scrollIntoView({behavior:'smooth'})">
+      Explore your calendar ↓
+    </button>
+
+  </div>
+</section>
+
+<section class="calendar" id="calendar">
+  <div class="snowflake">✧ ❄ ✧</div>
+  <h2>A little surprise, every day</h2>
+  <p class="calendar-intro">
+    24 little doors, just for you.<br>
+    One new surprise each day. ♡
+  </p>
+
+  <div class="doors" id="doors"></div>
+
+  <div class="surprise" id="surprise"></div>
+</section>
+
+<footer>
+  Made with love, just for you ♡
+</footer>
+
+<script>
+const doors = document.getElementById("doors");
+const surprise = document.getElementById("surprise");
+
+const messages = Array.from({length: 24}, (_, i) =>
+  `Your little surprise for December ${i + 1} will be waiting here. ♡`
+);
+
+function isUnlocked(day) {
+  const now = new Date();
+
+  if (now.getFullYear() > 2026) return true;
+  if (now.getFullYear() < 2026) return false;
+  if (now.getMonth() < 11) return false;
+  if (now.getMonth() > 11) return true;
+
+  return now.getDate() >= day;
+}
+
+for (let day = 1; day <= 24; day++) {
+  const button = document.createElement("button");
+  button.className = "door";
+  button.textContent = day;
+  button.disabled = !isUnlocked(day);
+
+  button.addEventListener("click", () => {
+    surprise.style.display = "block";
+
+    if (isUnlocked(day)) {
+      surprise.textContent = messages[day - 1];
+    }
+
+    surprise.scrollIntoView({
+      behavior: "smooth",
+      block: "center"
+    });
+  });
+
+  if (!isUnlocked(day)) {
+    button.title = "This little door isn't ready yet ♡";
+  }
+
+  doors.appendChild(button);
+}
+</script>
+
+</body>
+</html>
