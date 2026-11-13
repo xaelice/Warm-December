@@ -30,7 +30,7 @@ body {
 
 .hero {
   min-height: 100vh;
-  padding: 70px 22px;
+  padding: 65px 22px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -44,12 +44,13 @@ body {
 
 .hero-content {
   max-width: 620px;
+  width: 100%;
 }
 
 .snowflake {
   color: #e5d8bd;
-  font-size: 27px;
-  letter-spacing: 15px;
+  font-size: 25px;
+  letter-spacing: 12px;
 }
 
 .eyebrow {
@@ -57,7 +58,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 4px;
   font-size: 11px;
-  margin-top: 35px;
+  margin-top: 30px;
 }
 
 h1 {
@@ -73,8 +74,18 @@ h1 {
   font-size: 17px;
 }
 
+/* Santa cat decoration */
+.santa-cat {
+  display: block;
+  width: 125px;
+  max-width: 35%;
+  height: auto;
+  margin: 25px auto 5px;
+}
+
+/* Personal letter */
 .letter {
-  margin: 55px auto 30px;
+  margin: 35px auto 25px;
   text-align: left;
   line-height: 1.9;
   font-size: 16px;
@@ -85,7 +96,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Lora is applied only to the letter paragraphs, not the greeting */
 .letter p:not(:first-child) {
   font-family: 'Lora', serif;
 }
@@ -96,6 +106,30 @@ h1 {
   font-style: italic;
   font-size: 23px;
   margin-top: 30px;
+}
+
+/* Little decorative divider */
+.letter-divider {
+  text-align: center;
+  color: #d4b98e;
+  letter-spacing: 9px;
+  font-size: 17px;
+  margin: 25px 0;
+}
+
+/* Your original cat expressions */
+.cat-decorations {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  margin: 25px auto 10px;
+}
+
+.cat-decorations img {
+  width: 66px;
+  height: 66px;
+  object-fit: contain;
 }
 
 .button {
@@ -117,6 +151,7 @@ h1 {
   transform: translateY(-2px);
 }
 
+/* Calendar */
 .calendar {
   padding: 75px 20px;
   text-align: center;
@@ -133,6 +168,13 @@ h1 {
   font-style: italic;
   line-height: 1.7;
   margin-bottom: 35px;
+}
+
+.calendar-decoration {
+  color: var(--burgundy);
+  font-size: 17px;
+  letter-spacing: 10px;
+  margin: 18px 0;
 }
 
 .doors {
@@ -185,6 +227,13 @@ footer {
   font-style: italic;
 }
 
+.footer-decoration {
+  display: block;
+  margin-bottom: 12px;
+  letter-spacing: 8px;
+  font-size: 17px;
+}
+
 @media (max-width: 450px) {
   .doors {
     gap: 8px;
@@ -197,6 +246,19 @@ footer {
 
   .letter {
     font-size: 15px;
+  }
+
+  .cat-decorations {
+    gap: 12px;
+  }
+
+  .cat-decorations img {
+    width: 55px;
+    height: 55px;
+  }
+
+  .calendar h2 {
+    font-size: 30px;
   }
 }
 </style>
@@ -215,7 +277,14 @@ footer {
 
     <div class="subtitle">December 1st — 24th ♡</div>
 
+    <img
+      src="images/santa-cat.png"
+      alt="Black cat wearing a Santa hat"
+      class="santa-cat"
+    >
+
     <div class="letter">
+
       <p>Hey you,</p>
 
       <p>
@@ -247,6 +316,15 @@ footer {
       </p>
 
       <div class="signature">Yours, ♡</div>
+
+    </div>
+
+    <div class="letter-divider">✧ ♡ ✧</div>
+
+    <div class="cat-decorations">
+      <img src="images/cat-01.png" alt="Cute cat expression">
+      <img src="images/cat-06.png" alt="Cute cat expression">
+      <img src="images/cat-12.png" alt="Cute cat expression">
     </div>
 
     <button class="button"
@@ -258,8 +336,13 @@ footer {
 </section>
 
 <section class="calendar" id="calendar">
+
   <div class="snowflake">✧ ❄ ✧</div>
+
+  <div class="calendar-decoration">♡ ✦ ♡</div>
+
   <h2>A little surprise, every day</h2>
+
   <p class="calendar-intro">
     24 little doors, just for you.<br>
     One new surprise each day. ♡
@@ -268,9 +351,13 @@ footer {
   <div class="doors" id="doors"></div>
 
   <div class="surprise" id="surprise"></div>
+
+  <div class="calendar-decoration">✧ ❄ ✧</div>
+
 </section>
 
 <footer>
+  <span class="footer-decoration">♡ ✧ ♡</span>
   Made with love, just for you ♡
 </footer>
 
