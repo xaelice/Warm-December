@@ -289,6 +289,8 @@ footer {
 const doors = document.getElementById("doors");
 
 function isUnlocked(day) {
+  return true; // TEMPORARY: unlock all doors for testing
+
   const now = new Date();
 
   if (now.getFullYear() > 2026) return true;
