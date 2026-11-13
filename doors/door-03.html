@@ -1,92 +1,257 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>December 3rd ♡</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Little Sudoku ♡</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(160deg, #304b3d, #1c3027);
-      color: #f8f1e6;
-      font-family: Georgia, serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 25px;
-      box-sizing: border-box;
-    }
+<style>
+* { box-sizing: border-box; }
 
-    .content {
-      max-width: 550px;
-      width: 100%;
-      padding: 40px 25px;
-      border: 1px solid rgba(212, 185, 142, 0.4);
-      background: rgba(248, 241, 230, 0.06);
-      border-radius: 6px;
-    }
+body {
+  margin: 0;
+  padding: 30px 14px;
+  background: #26372c;
+  color: #f7f0e5;
+  font-family: 'Lora', serif;
+}
 
-    .date {
-      color: #d4b98e;
-      letter-spacing: 4px;
-      font-size: 12px;
-      text-transform: uppercase;
-    }
+.game {
+  max-width: 480px;
+  margin: 15px auto;
+  padding: 24px 16px;
+  background: #35483a;
+  border: 1px solid #c9aa79;
+  border-radius: 18px;
+}
 
-    h1 {
-      font-size: 42px;
-      font-weight: normal;
-      margin: 25px 0;
-    }
+h1 {
+  text-align: center;
+  color: #d8bd91;
+  font-size: 27px;
+}
 
-    .message {
-      font-family: 'Lora', serif;
-      font-size: 15px;
-      line-height: 2;
-      color: #f1e7d7;
-    }
+.intro {
+  text-align: center;
+  line-height: 1.7;
+  font-size: 14px;
+}
 
-    .decoration {
-      color: #d4b98e;
-      letter-spacing: 8px;
-      margin: 30px 0;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  max-width: 330px;
+  margin: 25px auto;
+  border: 2px solid #c9aa79;
+}
 
-    a {
-      color: #d4b98e;
-      text-decoration: none;
-      font-size: 13px;
-      letter-spacing: 1px;
-    }
+.cell {
+  aspect-ratio: 1;
+  min-width: 0;
+  border: 1px solid #8b927f;
+}
 
-    a:hover {
-      color: #fff;
-    }
-  </style>
+.cell:nth-child(6n + 3) {
+  border-right: 2px solid #c9aa79;
+}
+
+.cell:nth-child(n + 7):nth-child(-n + 12),
+.cell:nth-child(n + 19):nth-child(-n + 24),
+.cell:nth-child(n + 31):nth-child(-n + 36) {
+  border-bottom: 2px solid #c9aa79;
+}
+
+.cell input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  text-align: center;
+  background: #26372c;
+  color: #f7f0e5;
+  font-size: 20px;
+  font-family: inherit;
+  padding: 0;
+}
+
+.cell input:focus {
+  background: #52634e;
+}
+
+.cell input:disabled {
+  background: #813e48;
+  color: #fff8ee;
+  font-weight: bold;
+}
+
+.cell input.correct {
+  background: #42634b;
+  color: white;
+}
+
+.cell input.incorrect {
+  background: #813e48;
+  color: white;
+}
+
+button {
+  display: block;
+  margin: 12px auto;
+  padding: 12px 23px;
+  border: none;
+  border-radius: 25px;
+  background: #813e48;
+  color: #fff8ee;
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+#message {
+  text-align: center;
+  line-height: 1.7;
+  margin-top: 20px;
+  color: #e3c99c;
+}
+
+a {
+  display: block;
+  margin-top: 25px;
+  text-align: center;
+  color: #d8bd91;
+}
+</style>
 </head>
 
 <body>
-  <main class="content">
-    <p class="date">December 3rd</p>
 
-    <h1>A little beginning ♡</h1>
+<div class="game">
+  <h1>A little Sudoku ♡</h1>
 
-    <div class="decoration">✦ ✧ ✦</div>
+  <p class="intro">
+    A tiny brain challenge for you.<br>
+    Fill in the empty squares using numbers 1–6.
+  </p>
 
-    <p class="message">
-      Your first little surprise goes here.
-      <br><br>
-      I'll put something special here for you soon ( •̯́ ₃ •̯̀).
-    </p>
+  <p class="intro">
+    Each row, column and 2×3 box must contain
+    every number exactly once.
+  </p>
 
-    <div class="decoration">♡ ❄ ♡</div>
+  <div class="grid" id="grid"></div>
 
-    <a href="../index.html">← Back to the calendar</a>
-  </main>
+  <button onclick="checkAnswers()">Check my answers ♡</button>
+  <button onclick="clearAnswers()" style="background:#604d40">
+    Start again
+  </button>
+
+  <p id="message"></p>
+
+  <a href="../index.html">← Back to the calendar</a>
+</div>
+
+<script>
+const puzzle = [
+  [1, 2, 0, 0, 0, 6],
+  [0, 5, 6, 0, 0, 3],
+  [2, 0, 0, 5, 6, 1],
+  [5, 0, 1, 2, 3, 0],
+  [3, 0, 0, 6, 1, 2],
+  [6, 0, 2, 3, 4, 0]
+];
+
+const solution = [
+  [1, 2, 3, 4, 5, 6],
+  [4, 5, 6, 1, 2, 3],
+  [2, 3, 4, 5, 6, 1],
+  [5, 6, 1, 2, 3, 4],
+  [3, 4, 5, 6, 1, 2],
+  [6, 1, 2, 3, 4, 5]
+];
+
+const grid = document.getElementById("grid");
+
+function createGrid() {
+  puzzle.forEach((row, r) => {
+    row.forEach((number, c) => {
+      const box = document.createElement("div");
+      box.className = "cell";
+
+      const input = document.createElement("input");
+      input.type = "text";
+      input.inputMode = "numeric";
+      input.maxLength = 1;
+      input.dataset.row = r;
+      input.dataset.col = c;
+
+      if (number !== 0) {
+        input.value = number;
+        input.disabled = true;
+      } else {
+        input.addEventListener("input", () => {
+          input.value = input.value.replace(/[^1-6]/g, "");
+          input.classList.remove("correct", "incorrect");
+        });
+      }
+
+      box.appendChild(input);
+      grid.appendChild(box);
+    });
+  });
+}
+
+function checkAnswers() {
+  const inputs = document.querySelectorAll(".cell input");
+  let correct = 0;
+  let empty = 0;
+
+  inputs.forEach(input => {
+    const r = Number(input.dataset.row);
+    const c = Number(input.dataset.col);
+
+    if (puzzle[r][c] !== 0) return;
+
+    input.classList.remove("correct", "incorrect");
+
+    if (input.value === "") {
+      empty++;
+    } else if (Number(input.value) === solution[r][c]) {
+      correct++;
+      input.classList.add("correct");
+    } else {
+      input.classList.add("incorrect");
+    }
+  });
+
+  const total = 14;
+  const message = document.getElementById("message");
+
+  if (correct === total) {
+    message.textContent =
+      "YOU DID IT!! Sudoku champion. I'm proud of you ♡ ✨";
+  } else {
+    message.textContent =
+      correct + " / " + total + " correct!" +
+      (empty > 0 ? " You still have " + empty + " empty squares." :
+      " A few numbers need another look. Keep going! ♡");
+  }
+}
+
+function clearAnswers() {
+  document.querySelectorAll(".cell input").forEach(input => {
+    if (!input.disabled) {
+      input.value = "";
+      input.classList.remove("correct", "incorrect");
+    }
+  });
+
+  document.getElementById("message").textContent = "";
+}
+
+createGrid();
+</script>
+
 </body>
 </html>
