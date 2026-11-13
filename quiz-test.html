@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Alice Test ♡</title>
 
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      background: #26372c;
+      color: #f7f0e5;
+      font-family: 'Lora', serif;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .quiz {
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 30px;
+      background: #35483a;
+      border: 1px solid #c9aa79;
+      border-radius: 18px;
+    }
+
+    h1 { color: #c9aa79; }
+
+    .question {
+      margin: 30px 0;
+      text-align: left;
+    }
+
+    label {
+      display: block;
+      margin: 12px 0;
+      padding: 12px;
+      background: #26372c;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button {
+      background: #813e48;
+      color: #f7f0e5;
+      border: none;
+      padding: 13px 25px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #result { margin-top: 25px; }
+  </style>
+</head>
+
+<body>
+
+  <div class="quiz">
+    <h1>The Alice Test ♡</h1>
+    <p>Let's see how well you know me...</p>
+
+    <form id="quizForm">
+
+      <div class="question">
+        <p><strong>1. What's my favourite kind of day?</strong></p>
+
+        <label><input type="radio" name="q1" value="A slow, peaceful day" required>
+          A slow, peaceful day</label>
+
+        <label><input type="radio" name="q1" value="A busy day full of adventures">
+          A busy day full of adventures</label>
+
+        <label><input type="radio" name="q1" value="A day spent gaming">
+          A day spent gaming</label>
+      </div>
+
+      <div class="question">
+        <p><strong>2. What would I choose for our perfect date?</strong></p>
+
+        <label><input type="radio" name="q2" value="A cosy movie night" required>
+          A cosy movie night</label>
+
+        <label><input type="radio" name="q2" value="A little walk together">
+          A little walk together</label>
+
+        <label><input type="radio" name="q2" value="A spontaneous adventure">
+          A spontaneous adventure</label>
+      </div>
+
+      <p style="font-size:12px; opacity:0.8;">
+        Your answers will be saved as part of this December project ♡
+      </p>
+
+      <button type="submit">Submit my answers ♡</button>
+    </form>
+
+    <p id="result"></p>
+  </div>
+
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyQC60lSBofZPQZc5eo5yJkdX2yZd4Hfx3AMmTLiyMWRNY9lWw7ZAYrfQ-nakbmIcFgTQ/exec";
+
+    document.getElementById("quizForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const button = document.querySelector("button");
+      const result = document.getElementById("result");
+
+      const data = {
+        quiz: "The Alice Test",
+        question1: document.querySelector('input[name="q1"]:checked').value,
+        question2: document.querySelector('input[name="q2"]:checked').value
+      };
+
+      button.disabled = true;
+      result.textContent = "Sending your answers... ♡";
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
+          body: JSON.stringify(data)
+        });
+
+        result.textContent = "Thank you for playing! ♡";
+        document.getElementById("quizForm").reset();
+
+      } catch (error) {
+        result.textContent = "Something went wrong. Please try again!";
+        button.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
