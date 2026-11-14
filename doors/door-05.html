@@ -3,89 +3,175 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>December 5th ♡</title>
+  <title>This or That ♡</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
     body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(160deg, #304b3d, #1c3027);
-      color: #f8f1e6;
-      font-family: Georgia, serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 25px;
-      box-sizing: border-box;
-    }
-
-    .content {
-      max-width: 550px;
-      width: 100%;
-      padding: 40px 25px;
-      border: 1px solid rgba(212, 185, 142, 0.4);
-      background: rgba(248, 241, 230, 0.06);
-      border-radius: 6px;
-    }
-
-    .date {
-      color: #d4b98e;
-      letter-spacing: 4px;
-      font-size: 12px;
-      text-transform: uppercase;
-    }
-
-    h1 {
-      font-size: 42px;
-      font-weight: normal;
-      margin: 25px 0;
-    }
-
-    .message {
+      background: #26372c;
+      color: #f7f0e5;
       font-family: 'Lora', serif;
-      font-size: 15px;
-      line-height: 2;
-      color: #f1e7d7;
+      text-align: center;
+      padding: 40px 20px;
     }
 
-    .decoration {
-      color: #d4b98e;
-      letter-spacing: 8px;
+    .quiz {
+      max-width: 500px;
+      margin: 30px auto;
+      padding: 30px;
+      background: #35483a;
+      border: 1px solid #c9aa79;
+      border-radius: 18px;
+    }
+
+    h1 { color: #c9aa79; }
+
+    .question {
       margin: 30px 0;
+      text-align: left;
     }
 
-    a {
-      color: #d4b98e;
-      text-decoration: none;
-      font-size: 13px;
-      letter-spacing: 1px;
+    label {
+      display: block;
+      margin: 12px 0;
+      padding: 12px;
+      background: #26372c;
+      border-radius: 10px;
+      cursor: pointer;
     }
 
-    a:hover {
-      color: #fff;
+    button {
+      background: #813e48;
+      color: #f7f0e5;
+      border: none;
+      padding: 13px 25px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
     }
+
+    #result { margin-top: 25px; }
   </style>
 </head>
 
 <body>
-  <main class="content">
-    <p class="date">December 5th</p>
 
-    <h1>A little beginning ♡</h1>
+  <div class="quiz">
+    <h1>Pick one ♡</h1>
+    <p>Extremely hard version.</p>
 
-    <div class="decoration">✦ ✧ ✦</div>
+    <form id="quizForm">
 
-    <p class="message">
-      Your little surprise goes here.
-      <br><br>
-      I'll put something special here for you soon ( •̯́ ₃ •̯̀).
-    </p>
+      <div class="question">
+        <p><strong>1. Have the ability to pause time whenever we're together OR rewind any memory?</strong></p>
 
-    <div class="decoration">♡ ❄ ♡</div>
+        <label><input type="radio" name="q1" value="Have the ability to pause time whenever we're together" required>
+          Have the ability to pause time whenever we're together</label>
 
+        <label><input type="radio" name="q1" value="Rewind any memory">
+          Rewind any memory</label>
+      </div>
+
+      <div class="question">
+        <p><strong>2. Spend a day with me but I'm not allowed to speak OR spend a day texting me but we can't meet?</strong></p>
+
+        <label><input type="radio" name="q2" value="Spend a day with me but I'm not allowed to speak" required>
+          Spend a day with me but I'm not allowed to speak</label>
+
+        <label><input type="radio" name="q2" value="Spend a day texting me but we can't meet">
+          Spend a day texting me but we can't meet</label>
+      </div>
+
+       <div class="question">
+        <p><strong>3. Would you rather know every single thing I think about you OR every single thing I dream about?</strong></p>
+
+        <label><input type="radio" name="q2" value="Know every single thing I think about you" required>
+          Know every single thing I think about you</label>
+
+        <label><input type="radio" name="q2" value="Know every single thing I dream about">
+          Know every single thing I dream about</label>
+      </div>
+
+       <div class="question">
+        <p><strong>4. Have me fall asleep on your shoulder every night OR wake up next to me every morning?</strong></p>
+
+        <label><input type="radio" name="q2" value="Have me fall asleep on your shoulder every night" required>
+         Have me fall asleep on your shoulder every night</label>
+
+        <label><input type="radio" name="q2" value="Wake up next to me every morning">
+          Wake up next to me every morning</label>
+      </div>
+
+      <div class="question">
+        <p><strong>5. Know that every version of me in every universe would find you OR know that in this universe we chose each other entirely by chance?</strong></p>
+
+        <label><input type="radio" name="q2" value="Know that every version of me in every universe would find you" required>
+         Know that every version of me in every universe would find you</label>
+
+        <label><input type="radio" name="q2" value="Know that in this universe we chose each other entirely by chance">
+          Know that in this universe we chose each other entirely by chance</label>
+      </div>
+
+       <div class="question">
+        <p><strong>6. Would you rather...</strong></p>
+
+        <label><input type="radio" name="q2" value="Always find your way back to each other" required>
+        Always find your way back to each other</label>
+
+        <label><input type="radio" name="q2" value=" Never have to find each other because you never get lost">
+         Never have to find each other because you never get lost</label>
+         
+      <p style="font-size:12px; opacity:0.8;">
+        Your answers will be saved as part of this December project ♡
+      </p>
+
+      <button type="submit">Submit my answers ♡</button>
+    </form>
+
+    <p id="result"></p>
+  </div>
+
+  <script>
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyQC60lSBofZPQZc5eo5yJkdX2yZd4Hfx3AMmTLiyMWRNY9lWw7ZAYrfQ-nakbmIcFgTQ/exec";
+
+    document.getElementById("quizForm").addEventListener("submit", async function(e) {
+      e.preventDefault();
+
+      const button = document.querySelector("button");
+      const result = document.getElementById("result");
+
+      const data = {
+        quiz: "The Alice Test",
+        question1: document.querySelector('input[name="q1"]:checked').value,
+        question2: document.querySelector('input[name="q2"]:checked').value
+      };
+
+      button.disabled = true;
+      result.textContent = "Sending your answers... ♡";
+
+      try {
+        await fetch(SCRIPT_URL, {
+          method: "POST",
+          mode: "no-cors",
+          headers: {
+            "Content-Type": "text/plain;charset=utf-8"
+          },
+          body: JSON.stringify(data)
+        });
+
+        result.textContent = "Thank you for playing! ♡";
+        document.getElementById("quizForm").reset();
+
+      } catch (error) {
+        result.textContent = "Something went wrong. Please try again!";
+        button.disabled = false;
+      }
+    });
+  </script>
+
+</body>
+</html>
     <a href="../index.html">← Back to the calendar</a>
   </main>
 </body>
