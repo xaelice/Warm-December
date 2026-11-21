@@ -1,92 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>December 9th ♡</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Boyfriend Court ♡</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap" rel="stylesheet">
 
-  <style>
-    body {
-      margin: 0;
-      min-height: 100vh;
-      background: linear-gradient(160deg, #304b3d, #1c3027);
-      color: #f8f1e6;
-      font-family: Georgia, serif;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 25px;
-      box-sizing: border-box;
-    }
+<style>
+* { box-sizing: border-box; }
 
-    .content {
-      max-width: 550px;
-      width: 100%;
-      padding: 40px 25px;
-      border: 1px solid rgba(212, 185, 142, 0.4);
-      background: rgba(248, 241, 230, 0.06);
-      border-radius: 6px;
-    }
+body {
+  margin: 0;
+  padding: 30px 15px;
+  background: #26372c;
+  color: #f7f0e5;
+  font-family: 'Lora', serif;
+}
 
-    .date {
-      color: #d4b98e;
-      letter-spacing: 4px;
-      font-size: 12px;
-      text-transform: uppercase;
-    }
+.court {
+  max-width: 570px;
+  margin: 15px auto;
+  padding: 27px 21px;
+  background: #35483a;
+  border: 1px solid #c9aa79;
+  border-radius: 18px;
+}
 
-    h1 {
-      font-size: 42px;
-      font-weight: normal;
-      margin: 25px 0;
-    }
+.topline {
+  text-align: center;
+  color: #c9aa79;
+  letter-spacing: 3px;
+  font-size: 11px;
+}
 
-    .message {
-      font-family: 'Lora', serif;
-      font-size: 15px;
-      line-height: 2;
-      color: #f1e7d7;
-    }
+h1 {
+  text-align: center;
+  color: #d8bd91;
+  font-size: 30px;
+  margin-bottom: 5px;
+}
 
-    .decoration {
-      color: #d4b98e;
-      letter-spacing: 8px;
-      margin: 30px 0;
-    }
+.subtitle {
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.8;
+}
 
-    a {
-      color: #d4b98e;
-      text-decoration: none;
-      font-size: 13px;
-      letter-spacing: 1px;
-    }
+.case {
+  margin: 25px 0;
+  padding: 18px;
+  background: #26372c;
+  border: 1px solid #c9aa79;
+  border-radius: 12px;
+  line-height: 1.8;
+}
 
-    a:hover {
-      color: #fff;
-    }
-  </style>
+.case h2 {
+  text-align: center;
+  color: #d8bd91;
+  font-size: 18px;
+}
+
+.case p { font-size: 14px; }
+
+.question {
+  margin: 28px 0;
+}
+
+.question-title {
+  line-height: 1.7;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+label {
+  display: block;
+  margin: 10px 0;
+  padding: 13px;
+  background: #26372c;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+label:has(input:checked) {
+  border-color: #c9aa79;
+  background: #465a49;
+}
+
+input {
+  accent-color: #c9aa79;
+  margin-right: 8px;
+}
+
+button {
+  display: block;
+  margin: 25px auto 0;
+  padding: 13px 24px;
+  border: none;
+  border-radius: 25px;
+  background: #813e48;
+  color: #fff8ee;
+  font-family: inherit;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+button:disabled { opacity: 0.6; }
+
+.small {
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.8;
+  opacity: 0.8;
+}
+
+#verdict {
+  display: none;
+  margin-top: 30px;
+  text-align: center;
+  line-height: 1.8;
+}
+
+.verdict-card {
+  padding: 23px 16px;
+  background: #26372c;
+  border: 1px solid #c9aa79;
+  border-radius: 14px;
+}
+
+.stamp {
+  display: inline-block;
+  padding: 8px 18px;
+  border: 2px solid #c98282;
+  color: #e3a0a0;
+  font-size: 18px;
+  font-weight: bold;
+  transform: rotate(-5deg);
+  letter-spacing: 2px;
+}
+
+.verdict-title {
+  color: #d8bd91;
+  font-size: 24px;
+  margin-top: 25px;
+}
+
+a {
+  display: block;
+  margin-top: 28px;
+  color: #d8bd91;
+  text-align: center;
+}
+
+</style>
 </head>
 
 <body>
-  <main class="content">
-    <p class="date">December 9th</p>
 
-    <h1>A little beginning ♡</h1>
+<div class="court">
 
-    <div class="decoration">✦ ✧ ✦</div>
+  <p class="topline">COURTROOM Nº 009 • CONFIDENTIAL</p>
 
-    <p class="message">
-      Your first little surprise goes here.
-      <br><br>
-      I'll put something special here for you soon ( •̯́ ₃ •̯̀).
+  <h1>The Boyfriend Court ⚖</h1>
+
+  <p class="subtitle">
+    The People vs. Enzo<br>
+    One defendant. Five ridiculous charges. One very questionable judge.
+  </p>
+
+  <div class="case">
+    <h2>OFFICIAL CASE FILE</h2>
+
+    <p><strong>Defendant:</strong> Enzo</p>
+    <p><strong>Judge:</strong> Alice</p>
+    <p><strong>Jury:</strong> Not required. The judge is always right.</p>
+
+    <p><strong>Charges include:</strong></p>
+    <p>
+      I. Excessive cuteness.<br>
+      II. Unauthorised occupation of someone's thoughts.<br>
+      III. Excessive teasing.<br>
+      IV. Stealing attention.<br>
+      V. Making someone miss him.
     </p>
 
-    <div class="decoration">♡ ❄ ♡</div>
+    <p style="text-align:center;color:#d8bd91">
+      The defendant is hereby summoned to answer.
+    </p>
+  </div>
 
-    <a href="../index.html">← Back to the calendar</a>
-  </main>
+  <p class="small">
+    Choose your answers carefully, defendant.
+    Your responses will be saved as part of this December project. ♡
+  </p>
+
+  <form id="courtForm">
+    <div id="questions"></div>
+
+    <button type="submit">Present my defence ⚖</button>
+  </form>
+
+  <div id="verdict">
+    <div class="verdict-card">
+      <p class="stamp">VERDICT</p>
+      <div id="verdictTitle" class="verdict-title"></div>
+      <p id="verdictDescription"></p>
+      <div style="font-size:35px">⚖ ♡ ⚖</div>
+      <p id="sentence" style="color:#d8bd91"></p>
+    </div>
+
+    <p class="small">
+      This court is now officially adjourned.<br>
+      Case Nº 009 has been closed.
+    </p>
+
+    <button onclick="location.href='../index.html'">
+      Return to the calendar ♡
+    </button>
+  </div>
+
+  <a href="../index.html">← Back to the calendar</a>
+
+</div>
+
+<script>
+
+// IMPORTANT: Paste your scored quiz Web App URL here.
+const SCRIPT_URL = "PASTE_YOUR_SCORED_QUIZ_WEB_APP_URL_HERE";
+
+const questions = [
+  {
+    question: "CHARGE I — Excessive cuteness. How do you plead?",
+    options: [
+      { text: "Guilty. I cannot help being adorable.", type: "guilty" },
+      { text: "Not guilty. The prosecution has no evidence.", type: "innocent" },
+      { text: "I refuse to answer without my lawyer.", type: "chaos" }
+    ]
+  },
+  {
+    question: "CHARGE II — Your girlfriend says she's missing you. Your response?",
+    options: [
+      { text: "I miss you more. Come here. ♡", type: "guilty" },
+      { text: "I was literally thinking about you too.", type: "guilty" },
+      { text: "Objection! She's making me miss her even more.", type: "chaos" }
+    ]
+  },
+  {
+    question: "CHARGE III — You have been accused of stealing attention. Your defence?",
+    options: [
+      { text: "I plead guilty. I enjoy her attention.", type: "guilty" },
+      { text: "She gives it to me voluntarily.", type: "innocent" },
+      { text: "I demand a counter-trial. She's distracting too.", type: "chaos" }
+    ]
+  },
+  {
+    question: "CHARGE IV — Your girlfriend steals your food. What do you do?",
+    options: [
+      { text: "Let her have it. I'll get something else.", type: "guilty" },
+      { text: "Share, but I am absolutely keeping the last bite.", type: "innocent" },
+      { text: "Start a completely unnecessary food war.", type: "chaos" }
+    ]
+  },
+  {
+    question: "CHARGE V — You are accused of occupying someone's thoughts rent-free. What is your statement?",
+    options: [
+      { text: "I would like to renew my lease indefinitely.", type: "guilty" },
+      { text: "I had no idea. This is news to me.", type: "innocent" },
+      { text: "I would like to occupy even more space, please.", type: "chaos" }
+    ]
+  },
+  {
+    question: "FINAL QUESTION — You may request ONE thing from the judge. What will it be?",
+    options: [
+      { text: "A lifetime supply of affection.", type: "guilty" },
+      { text: "A fair trial and a chance to prove myself.", type: "innocent" },
+      { text: "The judge's personal phone number. For legal reasons.", type: "chaos" }
+    ]
+  }
+];
+
+const form = document.getElementById("courtForm");
+const area = document.getElementById("questions");
+
+questions.forEach((q, index) => {
+  const section = document.createElement("div");
+  section.className = "question";
+
+  const title = document.createElement("p");
+  title.className = "question-title";
+  title.textContent = q.question;
+  section.appendChild(title);
+
+  q.options.forEach(option => {
+    const label = document.createElement("label");
+    const radio = document.createElement("input");
+
+    radio.type = "radio";
+    radio.name = "q" + index;
+    radio.value = option.text;
+    radio.dataset.type = option.type;
+    radio.required = true;
+
+    label.appendChild(radio);
+    label.appendChild(document.createTextNode(option.text));
+    section.appendChild(label);
+  });
+
+  area.appendChild(section);
+});
+
+form.addEventListener("submit", async function(e) {
+  e.preventDefault();
+
+  const button = form.querySelector("button");
+  button.disabled = true;
+  button.textContent = "The judge is reviewing your case...";
+
+  const answers = questions.map((q, index) => {
+    const selected = form.querySelector(
+      'input[name="q' + index + '"]:checked'
+    );
+
+    return {
+      question: q.question,
+      selected: selected.value,
+      correctAnswer: "No right answer — this is a personality choice.",
+      isCorrect: null,
+      type: selected.dataset.type
+    };
+  });
+
+  const guilty = answers.filter(a => a.type === "guilty").length;
+  const innocent = answers.filter(a => a.type === "innocent").length;
+  const chaos = answers.filter(a => a.type === "chaos").length;
+
+  let title, description, sentence;
+
+  if (guilty >= innocent && guilty >= chaos) {
+    title = "GUILTY AS CHARGED.";
+    description =
+      "The evidence is overwhelming. You have admitted to being adorable, affectionate and completely guilty of stealing someone's heart.";
+    sentence =
+      "SENTENCE: A lifetime of affection, unlimited forehead kisses and absolutely no parole. ♡";
+  } else if (chaos >= innocent && chaos >= guilty) {
+    title = "CONTEMPT OF COURT.";
+    description =
+      "The defendant has shown absolutely no respect for courtroom procedures. The judge is confused, the jury is laughing and the case has become unnecessarily chaotic.";
+    sentence =
+      "SENTENCE: Mandatory daily silliness and an indefinite ban on behaving normally. ✦";
+  } else {
+    title = "SUSPICIOUSLY INNOCENT.";
+    description =
+      "The defendant denies most charges. Unfortunately, the judge remains unconvinced. There is simply too much evidence of suspiciously boyfriend-like behaviour.";
+    sentence =
+      "SENTENCE: Continued investigation, unlimited chances to prove yourself and a lifetime of being appreciated. ♡";
+  }
+
+  const data = {
+    quiz: "The Boyfriend Court — Day 9",
+    score: "N/A",
+    total: questions.length,
+    answers: answers
+  };
+
+  try {
+    await fetch(SCRIPT_URL, {
+      method: "POST",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "text/plain;charset=utf-8"
+      },
+      body: JSON.stringify(data)
+    });
+
+    document.getElementById("verdictTitle").textContent = title;
+    document.getElementById("verdictDescription").textContent = description;
+    document.getElementById("sentence").textContent = sentence;
+
+    form.style.display = "none";
+    document.getElementById("verdict").style.display = "block";
+
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+  } catch (error) {
+    button.disabled = false;
+    button.textContent = "Try again ♡";
+    alert("Something went wrong. Please try again.");
+  }
+});
+
+</script>
+
 </body>
 </html>
