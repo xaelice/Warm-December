@@ -168,7 +168,7 @@ const questions = [
       { text: "Give her affection and remind her how loved she is.", type: "soft" },
       { text: "Remember what happened and find a way to cheer her up.", type: "thoughtful" },
       { text: "Try to make her laugh until she forgets about it.", type: "playful" },
-      { text: "Listen to her and stay by her side until she's okay.", type: "steady and reliable" }
+      { text: "Listen to her and stay by her side until she's okay.", type: "reliable" }
     ]
   },
   {
@@ -177,7 +177,7 @@ const questions = [
       { text: "A cosy evening, cuddles and lots of affection.", type: "soft" },
       { text: "Something carefully planned with little surprises.", type: "thoughtful" },
       { text: "An adventure full of random activities and lot of laughing.", type: "playful" },
-      { text: "Something simple where we can just enjoy each other's company.", type: "steady and reliable" }
+      { text: "Something simple where we can just enjoy each other's company.", type: "reliable" }
     ]
   },
   {
@@ -186,7 +186,7 @@ const questions = [
       { text: "I say it often and make sure they feel appreciated.", type: "soft" },
       { text: "I remember tiny details and do things that make them happy.", type: "thoughtful" },
       { text: "I tease them, joke around and make them smile.", type: "playful" },
-      { text: "I show up consistently and keep my promises.", type: "steady and reliable" }
+      { text: "I show up consistently and keep my promises.", type: "reliable" }
     ]
   },
   {
@@ -195,7 +195,7 @@ const questions = [
       { text: "I MISS YOU MORE. Come here. ♡", type: "soft" },
       { text: "Send her something sweet that reminds her of me.", type: "thoughtful" },
       { text: "Reply with something ridiculous just to make her laugh.", type: "playful" },
-      { text: "Tell her when we'll see each other next.", type: "steady and reliable" }
+      { text: "Tell her when we'll see each other next.", type: "reliable" }
     ]
   },
   {
@@ -204,7 +204,7 @@ const questions = [
       { text: "I'm affectionate and emotionally expressive.", type: "soft" },
       { text: "I pay attention to the little things.", type: "thoughtful" },
       { text: "I bring fun and spontaneity into everything.", type: "playful" },
-      { text: "I'm loyal and someone you can count on.", type: "steady and reliable" }
+      { text: "I'm loyal and someone you can count on.", type: "reliable" }
     ]
   },
   {
@@ -213,7 +213,7 @@ const questions = [
       { text: "We spend hours being affectionate and doing nothing.", type: "soft" },
       { text: "I've prepared a little surprise for us.", type: "thoughtful" },
       { text: "We start doing one thing and somehow end up doing five others.", type: "playful" },
-      { text: "We relax together and enjoy having no plans.", type: "steady and reliable" }
+      { text: "We relax together and enjoy having no plans.", type: "reliable" }
     ]
   },
   {
@@ -222,7 +222,7 @@ const questions = [
       { text: "I get genuinely emotional because it's so sweet.", type: "soft" },
       { text: "I keep it somewhere special and treasure every detail.", type: "thoughtful" },
       { text: "I act dramatic and excited because I'm obsessed with it.", type: "playful" },
-      { text: "I appreciate the effort and make sure she knows it means a lot.", type: "steady and reliable" }
+      { text: "I appreciate the effort and make sure she knows it means a lot.", type: "reliable" }
     ]
   },
   {
@@ -231,7 +231,7 @@ const questions = [
       { text: "Loved, cherished and never afraid to be affectionate.", type: "soft" },
       { text: "Special, understood and remembered.", type: "thoughtful" },
       { text: "Happy, carefree and able to be silly.", type: "playful" },
-      { text: "Safe, respected and certain she can count on me.", type: "steady and reliable" }
+      { text: "Safe, respected and certain she can count on me.", type: "reliable" }
     ]
   }
 ];
@@ -258,14 +258,13 @@ const personalities = {
     message: "Please behave. Actually, never mind. I love you! ♡"
   },
 
-  steady and reliable: {
+  reliable: {
     icon: "☾",
     title: "The Steady One",
     description: "Turns out you're the dependable boyfriend. You believe love is more than just words: it's showing up for your lover, listening, respecting boundaries and keeping your promises. (especially pinky promises) You're someone who wants to build something meaningful, one day at a time. Something that will last forever.",
     message: "We LOVE some good Consistency hehe, I love you! ♡"
   }
 };
-<script>
     const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyQC60lSBofZPQZc5eo5yJkdX2yZd4Hfx3AMmTLiyMWRNY9lWw7ZAYrfQ-nakbmIcFgTQ/exec";
   
 const form = document.getElementById("quizForm");
@@ -304,7 +303,7 @@ form.addEventListener("submit", function(e) {
     soft: 0,
     thoughtful: 0,
     playful: 0,
-    steady: 0
+    reliable: 0
   };
 
   questions.forEach((q, index) => {
@@ -312,7 +311,9 @@ form.addEventListener("submit", function(e) {
       'input[name="q' + index + '"]:checked'
     );
 
-    scores[selected.value]++;
+    if (selected) {
+      scores[selected.value]++;
+    }
   });
 
   const highest = Math.max(...Object.values(scores));
@@ -326,6 +327,8 @@ form.addEventListener("submit", function(e) {
 
   winners.forEach(type => {
     const personality = personalities[type];
+
+    if (!personality) return;
 
     const card = document.createElement("div");
     card.className = "result-card";
@@ -362,8 +365,10 @@ form.addEventListener("submit", function(e) {
 
 function restartQuiz() {
   form.reset();
+
   form.style.display = "block";
   document.getElementById("result").style.display = "none";
+
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
