@@ -168,8 +168,8 @@ a {
   <h1>The Boyfriend Court ⚖</h1>
 
   <p class="subtitle">
-    The People vs. Enzo<br>
-    One defendant. Five ridiculous charges. One very questionable judge.
+  <br>
+    One defendant. Five serious (ridiculous) charges. And your VERY questionable judge.
   </p>
 
   <div class="case">
@@ -177,11 +177,11 @@ a {
 
     <p><strong>Defendant:</strong> Enzo</p>
     <p><strong>Judge:</strong> Alice</p>
-    <p><strong>Jury:</strong> Not required. The judge is always right.</p>
+    <p><strong>Jury:</strong> Meh. Not required. The judge is always right.</p>
 
-    <p><strong>Charges include:</strong></p>
+    <p><strong>Charges:</strong></p>
     <p>
-      I. Excessive cuteness.<br>
+      I. Conspiracy to steal the Judge's heart.<br>
       II. Unauthorised occupation of someone's thoughts.<br>
       III. Excessive teasing.<br>
       IV. Stealing attention.<br>
@@ -230,39 +230,39 @@ a {
 <script>
 
 // IMPORTANT: Paste your scored quiz Web App URL here.
-const SCRIPT_URL = "PASTE_YOUR_SCORED_QUIZ_WEB_APP_URL_HERE";
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyQC60lSBofZPQZc5eo5yJkdX2yZd4Hfx3AMmTLiyMWRNY9lWw7ZAYrfQ-nakbmIcFgTQ/exec";
 
 const questions = [
   {
-    question: "CHARGE I — Excessive cuteness. How do you plead?",
+    question: "CHARGE I — Conspiracy to steal the Judge's heart. How do you plead?",
     options: [
-      { text: "Guilty. I cannot help being adorable.", type: "guilty" },
-      { text: "Not guilty. The prosecution has no evidence.", type: "innocent" },
-      { text: "I refuse to answer without my lawyer.", type: "chaos" }
+      { text: "Guilty. And i would do it again.", type: "guilty" },
+      { text: "Your Honour, I have absolutely no idea what yo'ure talking about.", type: "innocent" },
+      { text: "Objection! The judge clearly fell for me first..", type: "unserious" }
     ]
   },
   {
-    question: "CHARGE II — Your girlfriend says she's missing you. Your response?",
+    question: "CHARGE II — Unauthorised occupation of someone's thoughts (rent-free).",
     options: [
-      { text: "I miss you more. Come here. ♡", type: "guilty" },
-      { text: "I was literally thinking about you too.", type: "guilty" },
-      { text: "Objection! She's making me miss her even more.", type: "chaos" }
+      { text: "I would like to renew my lease indefinitely", type: "guilty" },
+      { text: "I had no idea. This is news to me.", type: "innocent" },
+      { text: "I would like to occupy even more space, please.", type: "unserious" }
     ]
   },
   {
-    question: "CHARGE III — You have been accused of stealing attention. Your defence?",
+    question: "CHARGE III — First-Degree teasing with intent to annoy.",
     options: [
-      { text: "I plead guilty. I enjoy her attention.", type: "guilty" },
-      { text: "She gives it to me voluntarily.", type: "innocent" },
-      { text: "I demand a counter-trial. She's distracting too.", type: "chaos" }
+      { text: "I plead guilty. Teasing my girlfriend is my favorite hobby.", type: "guilty" },
+      { text: "Your Honour, I was simply being friendly.", type: "innocent" },
+      { text: "If she react every time how am I supposed to stop?", type: "unserious" }
     ]
   },
   {
-    question: "CHARGE IV — Your girlfriend steals your food. What do you do?",
+    question: "CHARGE IV — Making someone miss him.",
     options: [
-      { text: "Let her have it. I'll get something else.", type: "guilty" },
-      { text: "Share, but I am absolutely keeping the last bite.", type: "innocent" },
-      { text: "Start a completely unnecessary food war.", type: "chaos" }
+      { text: "I confess. I miss you too, though.", type: "guilty" },
+      { text: "Your Honour, I cannot be held responsible for your feelings.", type: "innocent" },
+      { text: "Have you considered simply missing me less??", type: "unserious" }
     ]
   },
   {
@@ -270,7 +270,7 @@ const questions = [
     options: [
       { text: "I would like to renew my lease indefinitely.", type: "guilty" },
       { text: "I had no idea. This is news to me.", type: "innocent" },
-      { text: "I would like to occupy even more space, please.", type: "chaos" }
+      { text: "I would like to occupy even more space, please.", type: "unserious" }
     ]
   },
   {
@@ -278,7 +278,7 @@ const questions = [
     options: [
       { text: "A lifetime supply of affection.", type: "guilty" },
       { text: "A fair trial and a chance to prove myself.", type: "innocent" },
-      { text: "The judge's personal phone number. For legal reasons.", type: "chaos" }
+      { text: "The judge's personal phone number. For legal reasons.", type: "unserious" }
     ]
   }
 ];
@@ -336,26 +336,26 @@ form.addEventListener("submit", async function(e) {
 
   const guilty = answers.filter(a => a.type === "guilty").length;
   const innocent = answers.filter(a => a.type === "innocent").length;
-  const chaos = answers.filter(a => a.type === "chaos").length;
+  const unserious = answers.filter(a => a.type === "unserious").length;
 
   let title, description, sentence;
 
-  if (guilty >= innocent && guilty >= chaos) {
+  if (guilty >= innocent && guilty >= unserious) {
     title = "GUILTY AS CHARGED.";
     description =
-      "The evidence is overwhelming. You have admitted to being adorable, affectionate and completely guilty of stealing someone's heart.";
+      "The evidence is overwhelming. You have admitted to stealing someone's heart and completely guilty of occupying her mind.";
     sentence =
-      "SENTENCE: A lifetime of affection, unlimited forehead kisses and absolutely no parole. ♡";
-  } else if (chaos >= innocent && chaos >= guilty) {
+      "SENTENCE: A lifetime of affection, unlimited kisses and absolutely no parole. ♡";
+  } else if (unserious >= innocent && unserious >= guilty) {
     title = "CONTEMPT OF COURT.";
     description =
-      "The defendant has shown absolutely no respect for courtroom procedures. The judge is confused, the jury is laughing and the case has become unnecessarily chaotic.";
+      "The defendant has shown absolutely no respect for courtroom procedures. The judge is confused, the jury is laughing (i said no jury but dw shhhh) and the case has become unnecessarily chaotic.";
     sentence =
       "SENTENCE: Mandatory daily silliness and an indefinite ban on behaving normally. ✦";
   } else {
     title = "SUSPICIOUSLY INNOCENT.";
     description =
-      "The defendant denies most charges. Unfortunately, the judge remains unconvinced. There is simply too much evidence of suspiciously boyfriend-like behaviour.";
+      "The defendant denies most charges. Unfortunately, the judge remains unconvinced hmmm. There is simply too much evidence of suspiciously boyfriend-like behaviour.";
     sentence =
       "SENTENCE: Continued investigation, unlimited chances to prove yourself and a lifetime of being appreciated. ♡";
   }
