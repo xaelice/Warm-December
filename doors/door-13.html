@@ -3,11 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>December 13th ♡</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       min-height: 100vh;
@@ -17,84 +22,161 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 25px;
-      box-sizing: border-box;
+      padding: 30px 20px;
     }
 
     .content {
-      max-width: 550px;
+      max-width: 900px;
       width: 100%;
-      padding: 40px 25px;
+      padding: 65px 45px;
       border: 1px solid rgba(212, 185, 142, 0.4);
       background: rgba(248, 241, 230, 0.06);
-      border-radius: 6px;
+      border-radius: 8px;
+      text-align: center;
     }
 
     .date {
       color: #d4b98e;
-      letter-spacing: 4px;
-      font-size: 12px;
+      letter-spacing: 5px;
+      font-size: 14px;
       text-transform: uppercase;
+      margin-bottom: 35px;
     }
 
     h1 {
-      font-size: 42px;
+      font-size: clamp(32px, 5vw, 62px);
       font-weight: normal;
-      margin: 25px 0;
-    }
-
-    .message {
-      font-family: 'Lora', serif;
-      font-size: 15px;
-      line-height: 2;
-      color: #f1e7d7;
+      line-height: 1.25;
+      margin: 0 auto 35px;
     }
 
     .decoration {
       color: #d4b98e;
-      letter-spacing: 8px;
-      margin: 30px 0;
+      letter-spacing: 10px;
+      margin: 35px 0;
+      font-size: 20px;
+    }
+
+    .message {
+      font-family: 'Lora', serif;
+      color: #f1e7d7;
+      text-align: left;
+      max-width: 650px;
+      margin: 40px auto;
+      padding-left: 28px;
+      font-size: 16px;
+      line-height: 1.8;
+    }
+
+    .message li {
+      padding-left: 12px;
+      margin-bottom: 22px;
+    }
+
+    .message li::marker {
+      color: #d4b98e;
+      font-size: 17px;
+    }
+
+    .bottom-decoration {
+      color: #d4b98e;
+      letter-spacing: 10px;
+      margin: 45px 0;
+      font-size: 17px;
     }
 
     a {
       color: #d4b98e;
       text-decoration: none;
-      font-size: 13px;
+      font-size: 16px;
       letter-spacing: 1px;
+      transition: color 0.3s ease;
     }
 
     a:hover {
       color: #fff;
     }
+
+    @media (max-width: 600px) {
+      .content {
+        padding: 40px 22px;
+      }
+
+      .message {
+        font-size: 14px;
+        padding-left: 24px;
+      }
+
+      .message li {
+        margin-bottom: 18px;
+      }
+
+      .date {
+        font-size: 11px;
+      }
+    }
   </style>
 </head>
 
 <body>
+
   <main class="content">
+
     <p class="date">December 13th</p>
 
     <h1>10 things i absolutely ADORE about you ♡</h1>
 
     <div class="decoration">✦ ✧ ✦</div>
 
-    <p class="message">
-      ⁀➴ ♡ The way your make ordinary things special, like just doing nothing and talking for hours.
-      ⁀➴ ♡ The way your remember things 
-      ⁀➴ ♡ 
-      ⁀➴ ♡ 
-      ⁀➴ ♡ 
-      ⁀➴ ♡ 
-      ⁀➴ ♡ 
-      ⁀➴ ♡ 
-      ⁀➴ ♡ 
-      ⁀➴ ♡ The fact that you're you
-     I LOVE YOU ( •̯́ ₃ •̯̀).
-    </p>
+    <ol class="message">
 
-    <div class="decoration">♡ ❄ ♡</div>
+      <li>
+        The way you make ordinary things special, like just doing nothing and talking for hours.
+      </li>
+
+      <li>
+        The way you remember things, even the tiniest little details.
+      </li>
+
+      <li>
+        The way you always manage to make me smile.
+      </li>
+
+      <li>
+        The way you make even the most boring days feel special.
+      </li>
+
+      <li>
+        The way I can be completely myself around you.
+      </li>
+
+      <li>
+        Your laugh and the way it makes me happy.
+      </li>
+
+      <li>
+        All the little things you do without even realizing how much they mean to me.
+      </li>
+
+      <li>
+        The way you understand me and make me feel loved.
+      </li>
+
+      <li>
+        All the memories we've made together and all the ones still waiting for us.
+      </li>
+
+      <li>
+        The fact that you're you. I LOVE YOU ( •̯́ ₃ •̯̀).
+      </li>
+
+    </ol>
+
+    <div class="bottom-decoration">♡ ❄ ♡</div>
 
     <a href="../index.html">← Back to the calendar</a>
+
   </main>
+
 </body>
 </html>
