@@ -204,6 +204,17 @@
   </main>
 
   <script>
+    function checkSecretWord() {
+  const secretInput = document.getElementById("secretWord");
+  const feedback = document.getElementById("secretFeedback");
+
+  if (secretInput.value.trim().toUpperCase() === "CAKE") {
+    window.location.href = "../secret.html";
+  } else {
+    feedback.textContent = "Hehe, that's not quite right! Try again ♡";
+    secretInput.value = "";
+  }
+}
     const questions = [
       {
         question: "Which kind of gift would make me happiest?",
@@ -323,16 +334,5 @@
     showQuestion();
   </script>
 
-function checkSecretWord() {
-  const secretInput = document.getElementById("secretWord");
-  const feedback = document.getElementById("secretFeedback");
-
-  if (secretInput.value.trim().toUpperCase() === "CAKE") {
-    window.location.href = "../secret.html";
-  } else {
-    feedback.textContent = "Hehe, that's not quite right! Try again ♡";
-    secretInput.value = "";
-  }
-}
 </body>
 </html>
