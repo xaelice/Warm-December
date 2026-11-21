@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +18,9 @@
       --brown: #604d40;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -53,6 +56,11 @@
       color: var(--cream);
       font-size: 30px;
       margin: 18px 0 12px;
+    }
+
+    h2 {
+      color: var(--gold);
+      font-size: 22px;
     }
 
     p {
@@ -129,6 +137,7 @@
       font-size: 19px;
       letter-spacing: 5px;
       outline: none;
+      font-family: inherit;
     }
 
     .main-button {
@@ -143,6 +152,10 @@
       font-size: 14px;
     }
 
+    .main-button:hover {
+      opacity: 0.85;
+    }
+
     .back {
       display: inline-block;
       margin-top: 30px;
@@ -151,36 +164,110 @@
       text-decoration: none;
     }
 
-    .hidden { display: none; }
+    .hidden {
+      display: none !important;
+    }
+
+    /* SECRET LETTER */
+
+    .secret-page {
+      animation: appear 1.2s ease;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .heart {
+      font-size: 45px;
+      color: var(--gold);
+      margin-top: 15px;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
+    .love-letter {
+      margin-top: 30px;
+      padding: 25px 20px;
+      background: var(--dark-green);
+      border: 1px solid var(--gold);
+      border-radius: 15px;
+      text-align: left;
+      line-height: 2;
+      font-size: 14px;
+    }
+
+    .signature {
+      margin-top: 25px;
+      color: var(--gold);
+      text-align: right;
+      font-style: italic;
+    }
+
+    .footer {
+      margin-top: 30px;
+      font-size: 12px;
+      opacity: 0.7;
+    }
+
   </style>
 </head>
 
 <body>
 
   <main class="card">
-    <div class="small">December 11 · Classified</div>
 
-    <h1>Find the password ♡</h1>
+    <!-- QUIZ INTRO -->
 
-    <p>
-      A little secret is waiting for you.<br>
-      Answer four questions to collect the letters
-      and discover the password.
-    </p>
+    <div id="quiz">
 
-    <section id="quiz">
-      <div class="progress" id="progress">Question 1 of 4</div>
+      <div class="small">December 11 · Classified</div>
+
+      <h1>Find the password ♡</h1>
+
+      <p>
+        A little secret is waiting for you.<br>
+        Answer four questions to collect the letters
+        and discover the password.
+      </p>
+
+      <div class="progress" id="progress">
+        Question 1 of 4
+      </div>
+
       <div class="question" id="question"></div>
+
       <div class="options" id="options"></div>
+
       <div class="feedback" id="feedback"></div>
-    </section>
+
+    </div>
+
+    <!-- PASSWORD SECTION -->
 
     <section id="passwordSection" class="hidden">
+
+      <div class="small">Almost there ♡</div>
+
       <h2>You found all four letters YESSSS!</h2>
+
       <p>Your collected letters are:</p>
+
       <div class="letter" id="letters">CAKE</div>
 
-      <p>Now enter the secret password to open your surprise.</p>
+      <p>
+        Now enter the secret password to open your surprise.
+      </p>
 
       <input
         id="password"
@@ -193,17 +280,88 @@
 
       <br>
 
-      <button class="main-button" onclick="checkPassword()">
+      <button
+        type="button"
+        class="main-button"
+        onclick="checkPassword()"
+      >
         Unlock the secret ♡
       </button>
 
       <div class="feedback" id="passwordFeedback"></div>
+
     </section>
 
-     <a class="back" href="index.html">← Back to the calendar</a>
+    <!-- SECRET PAGE -->
+
+    <section id="secretPage" class="hidden secret-page">
+
+      <div class="small">A little something for you</div>
+
+      <div class="heart">♡</div>
+
+      <h1>You found my little secret!</h1>
+
+      <p class="subtitle">
+        Hehe, congratulations my love.
+        You made it all the way here. ♡
+      </p>
+
+      <div class="love-letter">
+
+        <p>To my favourite person,</p>
+
+        <p>
+          If you're reading this, it means you figured out
+          my little secret word. I hope you enjoyed my
+          silly little quiz.
+        </p>
+
+        <p>
+          I just wanted to make something special for you.
+          Something small, but made with lots of love.
+        </p>
+
+        <p>
+          Thank you for being you. Thank you for making
+          my days brighter, for making me smile, and for
+          being someone I get to love.
+        </p>
+
+        <p>
+          I hope you never forget how much you mean to me.
+          Even on ordinary days, you're one of my favourite
+          parts of life.
+        </p>
+
+        <p>
+          I love you more than words can explain.
+          Always remember that, okay?
+        </p>
+
+        <div class="signature">
+          With all my love,<br>
+          Your favourite girl ♡
+        </div>
+
+      </div>
+
+      <p class="footer">
+        Made with love, just for you. ♡
+      </p>
+
+    </section>
+
+    <!-- BACK TO CALENDAR -->
+
+    <a class="back" href="../index.html">
+      ← Back to the calendar
+    </a>
+
   </main>
 
   <script>
+
     const questions = [
       {
         question: "Which kind of gift would make me happiest?",
@@ -250,77 +408,126 @@
     let currentQuestion = 0;
     let collectedLetters = [];
 
+    // SHOW QUESTIONS
+
     function showQuestion() {
+
       const q = questions[currentQuestion];
 
       document.getElementById("progress").textContent =
-        `Question ${currentQuestion + 1} of 4`;
+        `Question ${currentQuestion + 1} of ${questions.length}`;
 
-      document.getElementById("question").textContent = q.question;
+      document.getElementById("question").textContent =
+        q.question;
 
       const options = document.getElementById("options");
+
       options.innerHTML = "";
 
       document.getElementById("feedback").textContent = "";
 
       q.options.forEach((option, index) => {
+
         const button = document.createElement("button");
+
         button.className = "option";
         button.textContent = option;
 
         button.onclick = () => chooseAnswer(index);
 
         options.appendChild(button);
+
       });
     }
 
+    // CHECK ANSWERS
+
     function chooseAnswer(index) {
+
       const q = questions[currentQuestion];
+
       const feedback = document.getElementById("feedback");
 
       if (index === q.correct) {
+
         collectedLetters.push(q.letter);
 
-        feedback.textContent = `Correct! You found the letter ${q.letter} ♡`;
-
-        document.getElementById("letters").textContent =
-          collectedLetters.join("");
+        feedback.textContent =
+          `Correct! You found the letter ${q.letter} ♡`;
 
         document.querySelectorAll(".option").forEach(button => {
           button.disabled = true;
         });
 
         setTimeout(() => {
+
           currentQuestion++;
 
           if (currentQuestion < questions.length) {
+
             showQuestion();
+
           } else {
+
             document.getElementById("quiz").classList.add("hidden");
+
             document.getElementById("passwordSection").classList.remove("hidden");
+
+            document.getElementById("letters").textContent =
+              collectedLetters.join("");
+
           }
+
         }, 1100);
 
       } else {
-        feedback.textContent = "Not quite! Give it another try ♡";
+
+        feedback.textContent =
+          "Not quite! Give it another try ♡";
+
       }
     }
 
-    function checkPassword() {
-  const entered = document
-    .getElementById("password")
-    .value.trim()
-    .toUpperCase();
+    // CHECK PASSWORD AND REVEAL SECRET LETTER
 
-  if (entered === "CAKE") {
-    window.location.href = "../secret.html";
-  } else {
-    document.getElementById("passwordFeedback").textContent =
-      "Meh, that's not the password. Try again!";
-  }
-}
+    function checkPassword() {
+
+      const entered = document
+        .getElementById("password")
+        .value.trim()
+        .toUpperCase();
+
+      const feedback =
+        document.getElementById("passwordFeedback");
+
+      if (entered === "CAKE") {
+
+        document.getElementById("passwordSection").classList.add("hidden");
+
+        document.getElementById("secretPage").classList.remove("hidden");
+
+        document.querySelector(".small").textContent =
+          "A little something for you";
+
+        document.querySelector(".back").style.display = "none";
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      } else {
+
+        feedback.textContent =
+          "Meh, that's not the password. Try again! ♡";
+
+      }
+    }
+
+    // START QUIZ
 
     showQuestion();
+
   </script>
 
 </body>
