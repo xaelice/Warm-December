@@ -3,90 +3,325 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>December 11th ♡</title>
+  <title>Find the password ♡</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --green: #35483a;
+      --dark-green: #26372c;
+      --burgundy: #813e48;
+      --cream: #f7f0e5;
+      --gold: #c9aa79;
+      --brown: #604d40;
+    }
+
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       min-height: 100vh;
-      background: linear-gradient(160deg, #304b3d, #1c3027);
-      color: #f8f1e6;
-      font-family: Georgia, serif;
+      padding: 35px 18px;
       display: flex;
-      align-items: center;
       justify-content: center;
-      text-align: center;
-      padding: 25px;
-      box-sizing: border-box;
+      align-items: center;
+      background: linear-gradient(145deg, var(--dark-green), var(--green));
+      color: var(--cream);
+      font-family: 'Lora', serif;
     }
 
-    .content {
-      max-width: 550px;
+    .card {
       width: 100%;
-      padding: 40px 25px;
-      border: 1px solid rgba(212, 185, 142, 0.4);
-      background: rgba(248, 241, 230, 0.06);
-      border-radius: 6px;
+      max-width: 520px;
+      padding: 38px 25px;
+      text-align: center;
+      border: 1px solid var(--gold);
+      border-radius: 18px;
+      background: rgba(247, 240, 229, 0.08);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.2);
     }
 
-    .date {
-      color: #d4b98e;
-      letter-spacing: 4px;
-      font-size: 12px;
+    .small {
+      color: var(--gold);
+      letter-spacing: 3px;
+      font-size: 11px;
       text-transform: uppercase;
     }
 
     h1 {
-      font-size: 42px;
-      font-weight: normal;
-      margin: 25px 0;
+      color: var(--cream);
+      font-size: 30px;
+      margin: 18px 0 12px;
     }
 
-    .message {
-      font-family: 'Lora', serif;
-      font-size: 15px;
-      line-height: 2;
-      color: #f1e7d7;
+    p {
+      line-height: 1.7;
+      font-size: 14px;
     }
 
-    .decoration {
-      color: #d4b98e;
-      letter-spacing: 8px;
-      margin: 30px 0;
-    }
-
-    a {
-      color: #d4b98e;
-      text-decoration: none;
+    .progress {
+      color: var(--gold);
+      margin: 25px 0 12px;
       font-size: 13px;
-      letter-spacing: 1px;
     }
 
-    a:hover {
-      color: #fff;
+    .question {
+      font-size: 19px;
+      margin: 20px 0;
     }
+
+    .options {
+      display: grid;
+      gap: 11px;
+      margin-top: 20px;
+    }
+
+    .option {
+      padding: 14px;
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      background: transparent;
+      color: var(--cream);
+      font-family: inherit;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .option:hover {
+      background: var(--burgundy);
+      border-color: var(--burgundy);
+    }
+
+    .option:disabled {
+      opacity: 0.7;
+      cursor: default;
+    }
+
+    .feedback {
+      min-height: 28px;
+      margin-top: 18px;
+      color: var(--gold);
+      font-size: 14px;
+    }
+
+    .letter {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 12px 20px;
+      border: 1px solid var(--gold);
+      border-radius: 10px;
+      color: var(--gold);
+      font-size: 27px;
+      letter-spacing: 8px;
+    }
+
+    .password-input {
+      width: 100%;
+      padding: 14px;
+      margin: 15px 0;
+      border: 1px solid var(--gold);
+      border-radius: 9px;
+      background: var(--cream);
+      color: var(--dark-green);
+      text-align: center;
+      font-size: 19px;
+      letter-spacing: 5px;
+      outline: none;
+    }
+
+    .main-button {
+      padding: 13px 25px;
+      margin-top: 12px;
+      border: none;
+      border-radius: 25px;
+      background: var(--burgundy);
+      color: var(--cream);
+      font-family: inherit;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 30px;
+      color: var(--gold);
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .hidden { display: none; }
   </style>
 </head>
 
 <body>
-  <main class="content">
-    <p class="date">December 11th</p>
 
-    <h1>A little beginning ♡</h1>
+  <main class="card">
+    <div class="small">December 11 · Classified</div>
 
-    <div class="decoration">✦ ✧ ✦</div>
+    <h1>Find the password ♡</h1>
 
-    <p class="message">
-      Your first little surprise goes here.
-      <br><br>
-      I'll put something special here for you soon ( •̯́ ₃ •̯̀).
+    <p>
+      A little secret is waiting for you.<br>
+      Answer four questions to collect the letters
+      and discover the password.
     </p>
 
-    <div class="decoration">♡ ❄ ♡</div>
+    <section id="quiz">
+      <div class="progress" id="progress">Question 1 of 4</div>
+      <div class="question" id="question"></div>
+      <div class="options" id="options"></div>
+      <div class="feedback" id="feedback"></div>
+    </section>
 
-    <a href="../index.html">← Back to the calendar</a>
+    <section id="passwordSection" class="hidden">
+      <h2>You found all four letters YESSSS!</h2>
+      <p>Your collected letters are:</p>
+      <div class="letter" id="letters">CAKE</div>
+
+      <p>Now enter the secret password to open your surprise.</p>
+
+      <input
+        id="password"
+        class="password-input"
+        type="text"
+        placeholder="PASSWORD"
+        maxlength="10"
+        autocomplete="off"
+      >
+
+      <br>
+
+      <button class="main-button" onclick="checkPassword()">
+        Unlock the secret ♡
+      </button>
+
+      <div class="feedback" id="passwordFeedback"></div>
+    </section>
+
+    <a class="back" href="../index.html">← Back to the calendar</a>
   </main>
+
+  <script>
+    const questions = [
+      {
+        question: "Which kind of gift would make me happiest?",
+        options: [
+          "Something thoughtful and personal",
+          "The most expensive thing possible",
+          "A random gift with no explanation"
+        ],
+        correct: 0,
+        letter: "C"
+      },
+      {
+        question: "What can I happily spend time doing?",
+        options: [
+          "Watching sports all day",
+          "Reading or writing",
+          "Doing absolutely nothing forever"
+        ],
+        correct: 1,
+        letter: "A"
+      },
+      {
+        question: "My ideal free afternoon sounds like...",
+        options: [
+          "A busy day full of plans",
+          "Running around doing errands",
+          "A slow, cozy and peaceful day"
+        ],
+        correct: 2,
+        letter: "K"
+      },
+      {
+        question: "What matters most in a little surprise?",
+        options: [
+          "How expensive it is",
+          "How many people see it",
+          "The thought behind it"
+        ],
+        correct: 2,
+        letter: "E"
+      }
+    ];
+
+    let currentQuestion = 0;
+    let collectedLetters = [];
+
+    function showQuestion() {
+      const q = questions[currentQuestion];
+
+      document.getElementById("progress").textContent =
+        `Question ${currentQuestion + 1} of 4`;
+
+      document.getElementById("question").textContent = q.question;
+
+      const options = document.getElementById("options");
+      options.innerHTML = "";
+
+      document.getElementById("feedback").textContent = "";
+
+      q.options.forEach((option, index) => {
+        const button = document.createElement("button");
+        button.className = "option";
+        button.textContent = option;
+
+        button.onclick = () => chooseAnswer(index);
+
+        options.appendChild(button);
+      });
+    }
+
+    function chooseAnswer(index) {
+      const q = questions[currentQuestion];
+      const feedback = document.getElementById("feedback");
+
+      if (index === q.correct) {
+        collectedLetters.push(q.letter);
+
+        feedback.textContent = `Correct! You found the letter ${q.letter} ♡`;
+
+        document.getElementById("letters").textContent =
+          collectedLetters.join("");
+
+        document.querySelectorAll(".option").forEach(button => {
+          button.disabled = true;
+        });
+
+        setTimeout(() => {
+          currentQuestion++;
+
+          if (currentQuestion < questions.length) {
+            showQuestion();
+          } else {
+            document.getElementById("quiz").classList.add("hidden");
+            document.getElementById("passwordSection").classList.remove("hidden");
+          }
+        }, 1100);
+
+      } else {
+        feedback.textContent = "Not quite! Give it another try ♡";
+      }
+    }
+
+    function checkPassword() {
+      const entered = document
+        .getElementById("password")
+        .value.trim()
+        .toUpperCase();
+
+      if (entered === "CAKE") {
+        window.location.href = "secret.html";
+      } else {
+        document.getElementById("passwordFeedback").textContent =
+          "Meh, that's not the password. Try again!";
+      }
+    }
+
+    showQuestion();
+  </script>
+
 </body>
 </html>
